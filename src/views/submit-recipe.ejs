@@ -1,0 +1,155 @@
+<h2
+  class="dt-text-lg dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-900 lg:dt-text-xl"
+>
+  Submit Your Recipe
+</h2>
+<div class="">
+  <p>
+    Share your amazing recipe with thousands of web developers across the world
+    Fill our form to get started.
+  </p>
+</div>
+
+<br />
+<% if(infoSubmitObj != "") { %>
+<div
+  class="dt-p-4 dt-mb-4 dt-text-sm dt-text-green-800 dt-rounded-lg dt-bg-green-50 dark:dt-bg-gray-800 dark:dt-text-green-400"
+  role="alert"
+>
+  <span class="dt-font-medium"> <%= infoSubmitObj %></span>
+</div>
+<% } %> <% if(infoErrorsObj != "") { %>
+<div
+  class="dt-p-4 dt-mb-4 dt-text-sm dt-text-red-500 dt-rounded-lg dt-bg-green-50 dark:dt-bg-gray-800 dark:dt-text-green-400"
+  role="alert"
+>
+  <span class="dt-font-medium"> <%= infoErrorsObj[0].message %></span>
+</div>
+<% } %>
+
+<div class="dt-flex dt-justify-center">
+  <div class="dt-w-full dt-m-auto">
+    <form
+      method="POST"
+      action="/submit-recipe"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      <div class="dt-mb-6 dt-mt-3">
+        <div>
+          <label
+            for="email"
+            class="dt-block dt-mb-2 dt-text-sm dt-font-medium dt-text-gray-900 dark:dt-text-white"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="dt-bg-gray-50 dt-border dt-border-gray-300 dt-text-gray-900 dt-text-sm dt-rounded-lg focus:dt-ring-blue-500 focus:dt-border-blue-500 dt-block dt-w-full dt-p-2.5 dark:dt-bg-gray-700 dark:dt-border-gray-600 dark:dt-placeholder-gray-400 dark:dt-text-white dark:focus:dt-ring-blue-500 dark:focus:dt-border-blue-500"
+            placeholder="Email@gmail.com"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="name"
+            class="dt-block dt-mb-2 dt-text-sm dt-font-medium dt-text-gray-900 dark:dt-text-white"
+            >Recipe name</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="dt-bg-gray-50 dt-border dt-border-gray-300 dt-text-gray-900 dt-text-sm dt-rounded-lg focus:dt-ring-blue-500 focus:dt-border-blue-500 dt-block dt-w-full dt-p-2.5 dark:dt-bg-gray-700 dark:dt-border-gray-600 dark:dt-placeholder-gray-400 dark:dt-text-white dark:focus:dt-ring-blue-500 dark:focus:dt-border-blue-500"
+            placeholder="Recipe"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="description"
+            class="dt-block dt-mb-2 dt-text-sm dt-font-medium dt-text-gray-900 dark:dt-text-white"
+            >Description</label
+          >
+          <textarea
+            type="text"
+            id="description"
+            name="description"
+            class="dt-bg-gray-50 dt-border dt-border-gray-300 dt-text-gray-900 dt-text-sm dt-rounded-lg focus:dt-ring-blue-500 focus:dt-border-blue-500 dt-block dt-w-full dt-p-2.5 dark:dt-bg-gray-700 dark:dt-border-gray-600 dark:dt-placeholder-gray-400 dark:dt-text-white dark:focus:dt-ring-blue-500 dark:focus:dt-border-blue-500"
+            placeholder="Email@gmail.com"
+            placeholder="Description"
+            cols="30"
+            row="4"
+            required
+          ></textarea>
+        </div>
+
+        <br />
+        <div>
+          <label
+            for="description"
+            class="dt-block dt-mb-2 dt-text-sm dt-font-medium dt-text-gray-900 dark:dt-text-white"
+            >Ingredient</label
+          >
+          <div class="ingredientList">
+            <div class="ingredientDiv mb-1">
+              <input
+                type="text"
+                name="ingredient"
+                placeholder="Ingredient"
+                class="dt-bg-gray-50 dt-border dt-border-gray-300 dt-text-gray-900 dt-text-sm dt-rounded-lg focus:dt-ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              />
+            </div>
+            <button>+Ingredient</button>
+          </div>
+        </div>
+        <br />
+
+        <div>
+          <label
+            for="category"
+            class="dt-block dt-mb-2 dt-text-sm dt-font-medium dt-text-gray-900 dark:dt-text-white"
+            >Select Category</label
+          >
+          <select
+            id="category"
+            name="category"
+            class="dt-bg-gray-50 dt-border dt-border-gray-300 dt-text-gray-900 dt-text-sm dt-rounded-lg focus:dt-ring-blue-500 focus:dt-border-blue-500 dt-block dt-w-full dt-p-2.5 dark:dt-bg-gray-700 dark:dt-border-gray-600 dark:dt-placeholder-gray-400 dark:dt-text-white dark:focus:dt-ring-blue-500 dark:focus:dt-border-blue-500"
+          >
+            <option selected>Choose a country</option>
+            <option value="Thai">Thai</option>
+            <option value="American">American</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Indian">Indian</option>
+          </select>
+        </div>
+        <br />
+
+        <div>
+          <label
+            for="image"
+            class="dt-block dt-mb-2 dt-text-sm dt-font-medium dt-text-gray-900 dark:dt-text-white"
+            >Upload File</label
+          >
+          <input
+            class="dt-block dt-w-full dt-text-sm dt-text-gray-900 dt-border dt-border-gray-300 dt-rounded-lg dt-cursor-pointer dt-bg-gray-50 dark:dt-text-gray-400 focus:dt-outline-none dark:dt-bg-gray-700 dark:dt-border-gray-600 dark:dt-placeholder-gray-400"
+            id="image"
+            type="file"
+            name="image"
+            accept="image/*"
+          />
+        </div>
+        <br />
+        <br />
+        <button
+          type="submit"
+          class="dt-text-white dt-bg-blue-700 hover:dt-bg-blue-800 focus:dt-ring-4 focus:dt-ring-blue-300 dt-font-medium dt-rounded-lg dt-text-sm dt-px-5 dt-py-2 dt-mr-2 dt-mb-2 dark:dt-bg-blue-600 dark:hover:dt-bg-blue-700 focus:dt-outline-none dark:focus:dt-ring-blue-800"
+        >
+          Submit Recipe
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

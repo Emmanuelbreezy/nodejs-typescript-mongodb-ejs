@@ -1,0 +1,167 @@
+<div class="dt-flex dt-items-center dt-pb-9 dt-gap-x-7 dt-flex-row-reverse">
+  <div class="w-full md:dt-w-2/5">
+    <img src="/img/hero-image.png" class="dt-block dt-mx-auto" />
+  </div>
+  <div class="w-full md:dt-w-[55%]">
+    <h1
+      class="dt-mb-5 dt-text-3xl md:dt-w-[90%] dt-font-extrabold dt-leading-none dt-tracking-tight dt-text-gray-900 md:dt-text-3xl lg:dt-text-4xl"
+    >
+      Huge selection of delicious recipe ideas
+    </h1>
+    <p class="dt-text-base dt-font-normal dt-text-gray-500 lg:dt-text-base">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel consequuntur
+      quisquam nostrum rerum praesentium eligendi, obcaecati quibusdam dolorum
+      modi repudiandae aliquid dolor ratione voluptatibus reprehenderit veniam.
+      Eveniet assumenda sapiente debitis.
+    </p>
+    <div class="dt-gap-3 dt-mt-3 md:dt-flex dt-items-center">
+      <a
+        href="/explore-latest"
+        class="dt-text-white dt-bg-blue-700 hover:dt-bg-blue-800 focus:dt-ring-4 focus:dt-ring-blue-300 dt-font-medium dt-rounded-lg dt-text-sm dt-px-5 dt-py-2 dt-mr-2 dt-mb-2 dark:dt-bg-blue-600 dark:hover:dt-bg-blue-700 focus:dt-outline-none dark:focus:dt-ring-blue-800"
+        >Explore Latest</a
+      >
+      <a
+        href="/explore-random"
+        class="dt-text-gray-900 dt-bg-transparent hover:dt-bg-gray-100 focus:dt-ring-4 focus:dt-ring-gray-200 dt-font-medium dt-rounded-lg dt-text-sm dt-px-5 dt-py-2 dt-mr-2 dt-mb-2 dt-border-2 dt-border-gray-200"
+        >Show Random</a
+      >
+    </div>
+  </div>
+</div>
+
+<div class="dt-flex dt-items-center dt-gap-2 lg:dt-gap-3 dt-py-4">
+  <% if(categories != ''){ %> <% categories.forEach(function(category, index)
+  {%>
+  <a
+    href="/categories"
+    class="dt-relative dt-col-auto dt-text-center category__link dt-block dt-decoration-0 dt-transition-all hover:dt-scale-110"
+  >
+    <div
+      class="dt-flex dt-items-center dt-justify-center dt-shadow dt-h-[120px] dt-overflow-hidden dt-rounded-[8px]"
+    >
+      <img
+        src="img/<%- category.image %>"
+        alt="<%- category.image %>"
+        loading="lazy"
+        class="dt-w-full dt-object-cover"
+      />
+    </div>
+    <div
+      class="dt-absolute dt-bottom-0 dt-w-full dt-bg-black/60 dt-h-11 dt-py-3 dt-rounded-[8px]"
+    >
+      <span class="dt-text-sm dt-text-white dt-font-semibold"
+        ><%- category.image %></span
+      >
+    </div>
+  </a>
+  <% }) %> <% } %>
+</div>
+
+<section class="dt-w-full dt-pb-4 dt-pt-4">
+  <div class="dt-flex dt-mb-6 dt-items-center dt-justify-between dt-w-full">
+    <h2
+      class="dt-text-base dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-900 lg:dt-text-xl"
+    >
+      Latest Recipe
+    </h2>
+    <a href="/explore-latest" class="dt-text-sm dt-font-medium dt-text-gray-700"
+      >View More</a
+    >
+  </div>
+
+  <div class="dt-grid dt-grid-flow-col dt-grid-rows-1 dt-gap-2 lg:dt-gap-3">
+    <% if(food != ""){ %> <% food.latest.forEach(function(recipe, index) { %>
+    <a
+      href="/recipe/<%= recipe._id%>"
+      class="dt-relative dt-col-auto dt-text-center category__link dt-block dt-decoration-0"
+    >
+      <div
+        class="dt-flex dt-items-center dt-justify-center dt-shadow dt-h-[330px] dt-overflow-hidden dt-rounded-[8px]"
+      >
+        <img
+          src="img/<%= recipe.image%>"
+          alt="<%= recipe.name%>"
+          loading="lazy"
+          class="dt-w-full dt-h-full dt-object-cover"
+        />
+      </div>
+      <div class="dt-mt-2">
+        <span class="dt-text-sm dt-text-gray-800 dt-font-semibold">
+          <%= recipe.name%>
+        </span>
+      </div>
+    </a>
+    <% }) %> <% } %>
+  </div>
+</section>
+
+<section class="dt-w-full dt-pb-4 dt-pt-4">
+  <div class="dt-flex dt-mb-6 dt-items-center dt-justify-between dt-w-full">
+    <h2
+      class="dt-text-base dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-900 lg:dt-text-xl"
+    >
+      American Recipe
+    </h2>
+    <a
+      href="/categories/American"
+      class="dt-text-sm dt-font-medium dt-text-gray-700"
+      >View More</a
+    >
+  </div>
+
+  <div class="dt-grid dt-grid-flow-col dt-grid-rows-1 dt-gap-2 lg:dt-gap-3">
+    <% if(typeof food.american != "undefined" && food.american.length > 0){ %>
+    <% food.american.forEach(function(recipe, index) { %>
+    <a
+      href="/reciepe/<%= recipe._id%>"
+      class="dt-relative dt-col-auto dt-text-center category__link dt-block dt-decoration-0"
+    >
+      <div
+        class="dt-flex dt-items-center dt-justify-center dt-shadow dt-h-[330px] dt-overflow-hidden dt-rounded-[8px]"
+      >
+        <img
+          src="img/<%= recipe.image%>"
+          alt="<%= recipe.name%>"
+          loading="lazy"
+          class="dt-w-full dt-h-full dt-object-cover"
+        />
+      </div>
+      <div class="dt-mt-2">
+        <span class="dt-text-sm dt-text-gray-800 dt-font-semibold">
+          <%= recipe.name %>
+        </span>
+      </div>
+    </a>
+    <% }) %> <% } %>
+  </div>
+</section>
+
+<section class="dt-w-full dt-text-center dt-pb-4 dt-my-16 dt-pt-4">
+  <img
+    src="img/publish-recipe.png"
+    class="dt-block dt-mx-auto dt-mb-4"
+    width="566"
+    height="288"
+    loading="lazy"
+  />
+
+  <div
+    class="dt-flex dt-items-center dt-flex-col dt-justify-center dt-mx-auto dt-my-2"
+  >
+    <h1
+      class="dt-my-4 dt-text-4xl dt-text-center dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-900"
+    >
+      Publish your recipe for FREE today
+    </h1>
+    <p class="dt-text-lg dt-font-normal dt-text-gray-500 lg:dt-text-sm">
+      Publish your Recipe in front of thousand of people for free
+    </p>
+    <div class="dt-grid dt-gap-2 lg:dt-flex dt-justify-center dt-mt-4">
+      <a
+        href="/submit-recipe"
+        class="dt-text-white dt-bg-blue-700 hover:dt-bg-blue-800 focus:dt-ring-4 focus:dt-ring-blue-300 dt-font-semibold dt-rounded-lg dt-text-base dt-px-5 dt-py-2 dt-mr-2 dt-mb-2 dark:dt-bg-blue-600 dark:hover:dt-bg-blue-700 focus:dt-outline-none dark:focus:dt-ring-blue-800"
+        >Submit Recipe</a
+      >
+    </div>
+  </div>
+</section>

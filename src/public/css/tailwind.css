@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgb(243, 243, 243);
+}
+
+@layer components {
+  .list-item {
+    @apply dt-block dt-py-2 dt-pl-3 dt-pr-4 dt-text-gray-700 dt-rounded hover:dt-bg-gray-100 md:hover:dt-bg-transparent md:hover:dt-text-blue-700 md:dt-p-0 md:dark:hover:dt-text-white dark:dt-text-gray-400 dark:hover:dt-bg-gray-700 dark:hover:dt-text-white md:dark:hover:dt-bg-transparent dark:dt-border-gray-700;
+  }
+}

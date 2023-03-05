@@ -1,0 +1,129 @@
+<h2
+  class="dt-text-lg dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-900 lg:dt-text-xl"
+>
+  Explore Categories
+</h2>
+
+<br />
+
+<nav class="dt-flex" aria-label="Breadcrumb">
+  <ol class="dt-inline-flex dt-items-center dt-space-x-1 md:dt-space-x-3">
+    <li class="dt-inline-flex dt-items-center">
+      <a
+        href="/"
+        class="dt-inline-flex dt-items-center dt-text-sm dt-font-medium dt-text-gray-700 hover:dt-text-blue-600 dark:dt-text-gray-400 dark:hover:dt-text-white"
+      >
+        <svg
+          aria-hidden="true"
+          class="dt-w-4 dt-h-4 mr-2"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+          ></path>
+        </svg>
+        Home
+      </a>
+    </li>
+
+    <li class="dt-inline-flex dt-items-center">
+      <a
+        href="/categories"
+        class="dt-inline-flex dt-items-center dt-text-sm dt-font-medium dt-text-gray-700 hover:dt-text-blue-600 dark:dt-text-gray-400 dark:hover:dt-text-white"
+      >
+        <svg
+          aria-hidden="true"
+          class="dt-w-6 dt-h-6 dt-text-gray-400"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        Categories
+      </a>
+    </li>
+
+    <li aria-current="page">
+      <div class="dt-flex dt-items-center">
+        <svg
+          aria-hidden="true"
+          class="dt-w-6 dt-h-6 dt-text-gray-400"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        <span
+          class="dt-ml-1 dt-text-sm dt-font-medium dt-text-gray-500 md:dt-ml-2 dark:dt-text-gray-400"
+          >Categories</span
+        >
+      </div>
+    </li>
+  </ol>
+</nav>
+
+<div class="dt-flex dt-items-center dt-gap-2 lg:dt-gap-3 dt-py-4">
+  <% if(typeof categories != 'undefined' && categories.length > 0){ %> <%
+  categories.forEach(function(category, index) {%>
+  <a
+    href="/categories/<%- category.name %>"
+    class="dt-relative dt-col-auto dt-text-center category__link dt-block dt-decoration-0 dt-transition-all hover:dt-scale-110"
+  >
+    <div
+      class="dt-flex dt-items-center dt-justify-center dt-shadow dt-h-[120px] dt-overflow-hidden dt-rounded-[8px]"
+    >
+      <img
+        src="img/<%- category.image %>"
+        alt="<%- category.image %>"
+        loading="lazy"
+        class="dt-w-full dt-object-cover"
+      />
+    </div>
+    <div
+      class="dt-absolute dt-bottom-0 dt-w-full dt-bg-black/60 dt-h-11 dt-py-3 dt-rounded-[8px]"
+    >
+      <span class="dt-text-sm dt-text-white dt-font-semibold"
+        ><%- category.image %></span
+      >
+    </div>
+  </a>
+  <% }) %> <% } %>
+</div>
+
+<div class="dt-grid dt-grid-flow-col dt-grid-rows-1 dt-gap-2 lg:dt-gap-3">
+  <% if(typeof categoryById != 'undefined' && categoryById.length > 0){ %> <%
+  categoryById.forEach(function(recipe, index) { %>
+  <a
+    href="/recipe/<%= recipe._id%>"
+    class="dt-relative dt-col-auto dt-text-center category__link dt-block dt-decoration-0"
+  >
+    <div
+      class="dt-flex dt-items-center dt-justify-center dt-shadow dt-h-[330px] dt-overflow-hidden dt-rounded-[8px]"
+    >
+      <img
+        src="img/<%= recipe.image%>"
+        alt="<%= recipe.name%>"
+        loading="lazy"
+        class="dt-w-full dt-h-full dt-object-cover"
+      />
+    </div>
+    <div class="dt-mt-2">
+      <span class="dt-text-sm dt-text-gray-800 dt-font-semibold">
+        <%= recipe.name%>
+      </span>
+    </div>
+  </a>
+  <% }) %> <% } %>
+</div>

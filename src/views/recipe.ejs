@@ -1,0 +1,103 @@
+<h2
+  class="dt-text-lg dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-900 lg:dt-text-xl"
+>
+  Explore Recipe
+</h2>
+
+<br />
+
+<% if(recipe != null) {%>
+
+<nav class="dt-flex" aria-label="Breadcrumb">
+  <ol class="dt-inline-flex dt-items-center dt-space-x-1 md:dt-space-x-3">
+    <li class="dt-inline-flex dt-items-center">
+      <a
+        href="/"
+        class="dt-inline-flex dt-items-center dt-text-sm dt-font-medium dt-text-gray-700 hover:dt-text-blue-600 dark:dt-text-gray-400 dark:hover:dt-text-white"
+      >
+        <svg
+          aria-hidden="true"
+          class="dt-w-4 dt-h-4 mr-2"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+          ></path>
+        </svg>
+        Home
+      </a>
+    </li>
+
+    <li aria-current="page">
+      <div class="dt-flex dt-items-center">
+        <svg
+          aria-hidden="true"
+          class="dt-w-6 dt-h-6 dt-text-gray-400"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        <span
+          class="dt-ml-1 dt-text-sm dt-font-medium dt-text-gray-500 md:dt-ml-2 dark:dt-text-gray-400"
+          ><%- recipe.name %></span
+        >
+      </div>
+    </li>
+  </ol>
+</nav>
+
+<br />
+
+<div class="dt-flex dt-flex-col md:dt-flex-row dt">
+  <div class="dt-flex dt-flex-col dt-w-2/5">
+    <img
+      src="/img/<%- recipe.image %>"
+      class="dt-w-full"
+      style="top: 20px"
+      alt="<%- recipe.name %>"
+      loading="l
+    "
+    />
+  </div>
+
+  <div class="dt-flex-grow">
+    <div class="dt-flex dt-flex-col">
+      <div class="dt-mb-4">
+        <h1
+          class="dt-text-xl dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-900 lg:dt-text-xl"
+        >
+          <%- recipe.name %>
+        </h1>
+        <p class="dt-text-sm dt-mt-2"><%- recipe.category %></h5>
+      </div>
+
+
+      <div class="dt-w-full">
+        <h4 class="dt-text-base dt-mb-3 dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-700 lg:dt-text-xl">Cooking Instruction</h4>
+       <p class="dt-text-sm dt-text-[#222]"> <%- recipe.description %></p>
+      </div>
+    </div>
+
+    <div class="dt-w-full dt-mt-3">
+      <h4>Ingredients</h4>
+      <ul class="dt-list-disc">
+        <% recipe.ingredients.forEach(function(ingredient, index) { %>
+        <li><%= ingredient %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% }else { %>
+<p>No item found</p>
+<% } %>
+
+<br />

@@ -1,0 +1,36 @@
+<h2
+  class="dt-text-lg dt-font-bold dt-leading-none dt-tracking-tight dt-text-gray-900 lg:dt-text-xl"
+>
+  Explore Random
+</h2>
+
+<br />
+
+<div class="dt-grid dt-grid-flow-col dt-grid-rows-1 dt-gap-2 lg:dt-gap-3">
+  <% if(typeof recipe != "undefined"){ %>
+  <a
+    href="/recipe/<%= recipe._id%>"
+    class="dt-relative dt-col-auto dt-text-center category__link dt-block dt-decoration-0"
+  >
+    <div
+      class="dt-flex dt-items-center dt-justify-center dt-shadow dt-h-[330px] dt-overflow-hidden dt-rounded-[8px]"
+    >
+      <img
+        src="img/<%= recipe.image%>"
+        alt="<%= recipe.name%>"
+        loading="lazy"
+        class="dt-w-full dt-h-full dt-object-cover"
+      />
+    </div>
+    <div class="dt-mt-2">
+      <span class="dt-text-sm dt-text-gray-800 dt-font-semibold">
+        <%= recipe.name %>
+      </span>
+    </div>
+  </a>
+  <% }else { %>
+  <br />
+  <p>No item found</p>
+  <br />
+  <% } %>
+</div>
